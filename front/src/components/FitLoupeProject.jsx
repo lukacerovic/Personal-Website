@@ -46,12 +46,12 @@ export default function FitLoupeProject() {
                         
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Tools:</p>
-                            <p className='text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>React Native | </p>
+                            <p className='text-md sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl'>React Native | </p>
                         </div>
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Description:</p>
                             <p className='text-sm sm:text-xl md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'>
-                                My application is available for both iOS and Android, facilitating networking between clients and trainers. 
+                                My application is available for both <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>iOS</span> and <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>Android</span>, facilitating networking between clients and trainers. 
                                 Trainers can efficiently create tailored training plans, track client progress for each exercise, and manage individual calendars with ease. 
                                 The app allows for uploading video content to private galleries, enabling remote collaboration between trainers and clients. 
                                 Additionally, messaging functionality enhances communication and more.
