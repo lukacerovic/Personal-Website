@@ -41,16 +41,6 @@ export default function OtherProjects() {
                 Finally, it compiles and returns a list of the top three relevant links for each topic found in your search history.
                 </p>
             </div>
-            <div style={{backgroundColor:'black', gap:'2vw'}} className='w-[100%] md:w-[40%] self-center rounded-lg flex flex-col text-white'>
-                <video controls>
-                    <source src="videos/pythonBrowser.MP4" type="video/mp4"/>
-                </video> 
-                <p className='text-center text-sm sm:text-md xl:text-lg 2xl:text-xl' style={{ padding:'0.5vw', paddingTop:'0.5vw', borderTopWidth:'1px'}}>
-                The Python program utilizes <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>Selenium</span> to automate the opening of your Edge Browser and retrieves your search history.
-                It proceeds to input each topic from your search history into the browser's search bar and conducts a search. 
-                Finally, it compiles and returns a list of the top three relevant links for each topic found in your search history.
-                </p>
-            </div>
             
         </div>
         
