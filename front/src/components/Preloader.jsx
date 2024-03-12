@@ -13,7 +13,7 @@ export default function Preloader() {
 
   return (
     <div className="fixed h-100% px-[3vw] z-50 inset-0 flex items-center justify-center bg-black"
-         
+    style={{ opacity: loading ? 1 : 0, pointerEvents: loading ? 'auto' : 'none' }}
     >
       
         <div className='flex flex-col gap-[10vw] md:gap-[5vw]'>
