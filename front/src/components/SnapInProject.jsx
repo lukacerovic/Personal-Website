@@ -25,14 +25,14 @@ export default function SnapInProject() {
                         </div>              
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-5xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Tools:</p>
-                            <p className='text-md sm:text-lg md:text-xl lg:text-xl xl:text-3xl 2xl:text-4xl'>React JS | Node.js | MongoDb | Express | Tailwind | Three.js | 3D Modeling | JWT | Sendgrid | QR Code</p>
+                            <p className='text-md sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl'>React JS | Node.js | MongoDb | Express | Tailwind | Three.js | 3D Modeling | JWT | Sendgrid | QR Code</p>
                         </div>
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-5xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Description:</p>
                             <p className='text-sm sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl'>
                                 Hotels create booking posts for their rooms, which are then listed for tourists to browse. Once tourists find a suitable booking post, they can proceed to perform an online check-in.
-                                During online check-in, tourists simply upload a picture of their passport. An algorithm automatically scans the passport image and extracts all necessary information, filling out the online check-in form automatically. Tourists can review the populated form before completing the online check-in process.
-                                Upon completion, hotels receive notifications of completed online check-ins. They can view all booking requests and passport information in a table format. With a click of a button, hotels can assign rooms, triggering an email containing a QR code – representing the room key – to be sent to the tourist. When tourists scan the QR code, they gain access to their assigned room.
+                                During online check-in, tourists simply upload a picture of their passport. An <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>algorithm automatically scans the passport</span> image and extracts all necessary information, filling out the online check-in form automatically. Tourists can review the populated form before completing the online check-in process.
+                                Upon completion, hotels receive notifications of completed online check-ins. They can view all booking requests and passport information in a table format. With a click of a button, hotels can assign rooms, triggering an <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>email containing a QR code</span> – representing the <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>room key</span> – to be sent to the tourist. When tourists scan the QR code, they gain access to their assigned room.
                             </p>
                         </div> 
                         <div>
