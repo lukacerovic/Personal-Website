@@ -177,7 +177,7 @@ export default function Home() {
           </div>
           <div className='flex flex-col my-[15vw] -sm:gap-[10vw] items-center justify-center gap-[2vw] items-center justify-between'>
               <SkillsAndExperiance/>
-              <div className='w-full h-[80vw] ml-[23vw] sm:ml-0 sm:h-[60vw] mt-[10vw] md:mt-[5vw]'>
+              <div className='w-[100%] h-[80vw] sm:ml-0 sm:h-[60vw] mt-[10vw] md:mt-[5vw]'>
                   <Spline scene='https://prod.spline.design/yEnQ5qSj6CZCMx9U/scene.splinecode'/> 
               </div>
           </div>
