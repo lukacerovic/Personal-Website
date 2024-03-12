@@ -110,33 +110,6 @@ export default function Home() {
             }
         };
     }, []);
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,  // spred operatior da prati promene svih polja i da ih pamti cak i kada nisu u fokusu 
-            [e.target.id]: e.target.value,  // preko id pratimo svaki input i dodeljujemo mu vrednost
-          });
-      };
-    const handleSendForm = async (e) =>{
-        e.preventDefault();
-        try {
-            const res = await fetch('/backend/message/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-                
-            });
-            const data = await res.json();
-            if (data.success) {
-                setShowSuccessMessage(true);
-            }
-            
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
   return (
     <div className="flex flex-col text-white">
         <Preloader/>
@@ -430,32 +403,7 @@ export default function Home() {
                             <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>luka.cerovic14@gmail.com</p>
                         </span>  
                     </div>
-                    <div>
-                        <img src='' style={{width:'30vw', marginTop:'-20vw'}}/>
-                    </div>
                </div>
-               
-               {showSuccessMessage && (
-                    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
-                        <div className="rounded-lg flex flex-col text-white" style={{padding:'5vw', backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(images/papperPlane.jpeg)`, backgroundSize: 'cover', backgroundPosition: 'center',}}>
-                            <p className='self-center bg-transparent flex' style={{fontSize:'2vw', paddingBottom:'3vw'}} >Thank you for your message</p>
-                            <p style={{fontSize:'3vw'}} className='text-center'>Your message has been sent</p>
-                            <p style={{fontSize:'3vw'}} className='text-center'>Successfully!</p>
-                            <IoMdCloudDone size={'7vw'} color='#32cd32' className='self-center'/>
-                            <button className="bg-cyan-400 text-white rounded-md" style={{fontSize:'2vw', marginTop:'5vw', padding:'1vw'}} onClick={() => setShowSuccessMessage(false)}>Close</button>
-                        </div>
-                    </div>
-                )}
-               <button type='button' onClick={() => handleSectionClick('form')} style={{marginTop:'5vh'}} className='bg-pink-500 text-white p-3 rounded-lg text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-10'>Contact Me Directly</button>
-                 
-                {activeSection === 'form' && (
-                  <form onSubmit={handleSendForm} className='flex flex-col text-black gap-3 mt-5 w-[100%] sm:w-[60vw] text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'> 
-                    <input className='p-3 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Full Name' id='username' onChange={handleChange}/>
-                    <input className='p-3 rounded-lg' style={{background:'#f0f8ff '}} type='email' placeholder='Email' id='email' onChange={handleChange}/>
-                    <textarea className='p-3 h-60 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Message...' id='message' onChange={handleChange}/>
-                    <button className='w-full bg-green-500 p-3 rounded-lg text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl uppercase'>Send  Message</button>
-                  </form>  
-                )}
             </div>
         </div>
     </div>
