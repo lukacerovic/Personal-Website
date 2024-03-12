@@ -19,7 +19,7 @@ export default function FitLoupeProject() {
   return (
     <div className='flex flex-col md:flex-row items-center justify-between' style={{marginBottom:'5vw'}}>
                 <div className='flex flex-col'>
-                    <h1 className='self-center text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-[10vw]'>Demo Video</h1>
+                    <h1 className='self-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-[10vw]'>Demo Video</h1>
                    <img className='self-center w-[80%] md:w-[38%] mt-[-45vw] md:mt-[-10vw]'src='images/fitLoupe.png'/>
                    
                     <video controls className='self-center h-[120vw] md:h-[60vw] mt-[-45vw] md:mt-[-10vw]' >
@@ -37,11 +37,11 @@ export default function FitLoupeProject() {
                         </div>
                     )}
                 </div>
-                <div className='w-[90%] md:w-[50vw] mt-[10vw] md:mt-0' style={{ borderLeftWidth:'1px', paddingLeft:'2vw'}}>
+                <div className='w-[100%] md:w-[50vw] mt-[10vw] md:mt-0' style={{ borderLeftWidth:'1px', paddingLeft:'2vw'}}>
                     <div className='flex flex-col gap-[5vw] md:gap-[3vw]'>
                         <div>
                             <h1 className='text-6xl sm:text-7xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>Fit Loupe</h1>
-                            <p className='mt-[1.5vw] text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Mobile App For Personal Trainers</p>
+                            <p className='mt-[1.5vw] text-xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Mobile App For Personal Trainers</p>
                         </div>
                         
                         <div>
@@ -50,7 +50,7 @@ export default function FitLoupeProject() {
                         </div>
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Description:</p>
-                            <p className='text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'>
+                            <p className='text-sm sm:text-xl md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'>
                                 My application is available for both iOS and Android, facilitating networking between clients and trainers. 
                                 Trainers can efficiently create tailored training plans, track client progress for each exercise, and manage individual calendars with ease. 
                                 The app allows for uploading video content to private galleries, enabling remote collaboration between trainers and clients. 
@@ -108,7 +108,7 @@ export default function FitLoupeProject() {
                                     <IoLogoAndroid color='#32cd32' size={'2.5vw'}/> 
                                     Android Store
                                 </Link> */}
-                                <Link className='flex items-center text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl' style={{gap:'0.3vw'}}>
+                                <Link to='https://github.com/lukacerovic/FitLoupe' className='flex items-center text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl' style={{gap:'0.3vw'}}>
                                     <GrGithub className='text-5xl sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl'/>
                                     GitHub
                                 </Link>

@@ -27,3 +27,50 @@ p, button {
   transform: scale(1.2); /* PoveÄ‡ava element za 5% kada je u hover stanju */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.line {
+  width: 0;
+  height: 2px;
+  background-color: white;
+  animation: drawLine 5s forwards; /* Animacija linije traje 2 sekunde */
+  animation-delay: 1s; /* Linija će se pojaviti 2 sekunde nakon što se pojavio tekst */
+}
+
+.fadeInHText {
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Fade-in animacija za tekst traje 2 sekunde */
+  animation-delay: 0.2s; /* Tekst će se pojaviti 4 sekunde nakon što se pojavila linija */
+}
+
+.fadeInP1Text {
+  opacity: 0;
+  animation: fadeIn 4s forwards; /* Fade-in animacija za tekst traje 2 sekunde */
+  animation-delay: 1s; /* Tekst će se pojaviti 4 sekunde nakon što se pojavila linija */
+}
+.fadeInP2Text {
+  opacity: 0;
+  animation: fadeIn 6s forwards; /* Fade-in animacija za tekst traje 2 sekunde */
+  animation-delay: 2s; /* Tekst će se pojaviti 4 sekunde nakon što se pojavila linija */
+}
+.fadeInP3Text {
+  opacity: 0;
+  animation: fadeIn 6s forwards; /* Fade-in animacija za tekst traje 2 sekunde */
+  animation-delay: 3s; /* Tekst će se pojaviti 4 sekunde nakon što se pojavila linija */
+}

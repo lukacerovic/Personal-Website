@@ -22,18 +22,20 @@ import { Canvas } from '@react-three/fiber';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Preloader from '../components/Preloader';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     const [activeSection, setActiveSection] = useState('');
     const [formData, setFormData] = useState({});
     const portfolioRef = useRef(null);
-    const servicesRef = useRef(null);
-    const contactRef = useRef(null);
-    const { hash } = useLocation();
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const canvasRef = useRef(null);
-
+    const [selectedImage, setSelectedImage] = useState(null);
+  
+    const handleImageClick = (imageUrl) => {
+      setSelectedImage(imageUrl);
+    };
 
     const modelContainer = useRef();
     const logoProjects = useRef();
@@ -78,6 +80,9 @@ export default function Home() {
       "images/logoSample15.png",
       "images/logoSample6.jpeg",
     ];
+    const handleSectionClick = (section) => {
+        setActiveSection(section);
+    };
 
     useEffect(() => {
         const options = {
@@ -105,23 +110,6 @@ export default function Home() {
             }
         };
     }, []);
-    
-
-    useEffect(() => {
-        if (hash === '#portfolio' && portfolioRef.current) {
-          portfolioRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-        if (hash === '#services' && servicesRef.current) {
-            servicesRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-        if (hash === '#contact' && contactRef.current) {
-            contactRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, [hash]);
-    
-    const handleSectionClick = (section) => {
-        setActiveSection(section);
-    };
 
     const handleChange = (e) => {
         setFormData({
@@ -148,290 +136,291 @@ export default function Home() {
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
   return (
-    
-    <div className='flex flex-col text-white'>
-        <div className='flex flex-col' style={{background:'linear-gradient(to bottom, black, #595858)'}}>
-            <div>
-                <div className='flex flex-col' style={{gap:'3vw'}}>
-                    <h1 style={{paddingTop:'5vw', paddingBottom:'5vw'}} className='text-center text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl uppercase'>My Personal <br/> Web Site</h1>
-                    <div className='flex justify-between' style={{ paddingInline:'1vw'}}>
-                        <div style={{height:'40vh', width:'45%', marginTop:'-15vw'}}>
-                        {/* <Spline scene='https://prod.spline.design/m94FrrHb-QUDpB3v/scene.splinecode'/>   */}
-                        <Canvas
-                            ref={modelContainer}
-                        >
-                            {" "}
-                            <ambientLight />
-                            <spotLight intensity={0.3} position={[5, 10, 50]} />
-                            <directionalLight
-                            intensity={0.7}
-                            position={[10, 50, 30]}
-                            castShadow
-                            />
-                            <Suspense fallback={null}>
-                            <PersonalAvatarModelStanding
-                                element={modelContainer}
-                                textAnimate={[portfolioRef, mobileProjects, logoProjects]}
-                                scale={2}
-                                position={[0, -1.5, 0]}
-                            />
-                            </Suspense>
-                        </Canvas>
-                        </div>
-                        <div style={{width:'40%', paddingInline:'1vw'}} className='text-start'>
-                            <h1 className='text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl' style={{color:'#d3d3d3', opacity:'0.7', lineHeight: '1', paddingBottom:'1vw'}}>
-                            LUKA CEROVIC
-                            </h1>
-                            <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl' style={{paddingTop:'0.5vw', paddingBottom:'3vw'}}>
-                                Software Developer 3+ years
-                            </p>
-                            <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
-                                <FaLocationDot className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>Belgrade | Serbia
-                            </p>
-                            <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
-                                <FaCalendarDays className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>02.10.2000.
-                            </p>
-                            <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingTop:'1vw',paddingBottom:'6vw'}}>
-                            <RiContactsFill className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>luka.cerovic14@gmail.com | +381 640257139
-                            </p>
-                        </div>
-                    </div>
-                    <div className='flex justify-between self-center' style={{width:'60vw'}}>
-                        <Link to='https://www.linkedin.com/in/luka-cerovic-a50b52274/' className='rounded-3xl'>
-                            <GrLinkedin className='text-cyan-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl'/>
-                        </Link>
-                        <Link to='https://github.com/lukacerovic' className='rounded-3xl'>
-                            <GrGithub className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl'/>
-                        </Link>
+    <div className="flex flex-col text-white">
+        <Preloader/>
+      <div className='flex flex-col' style={{background:'linear-gradient(to bottom, black, #595858)'}}>
+          <div>
+              <div className='flex flex-col' style={{gap:'3vw'}}>
+                  <h1 style={{paddingTop:'5vw', paddingBottom:'5vw'}} className='text-center text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl uppercase'>My Personal <br/> Web Site</h1>
+                  <div className='flex flex-col justify-center items-center sm:flex-row sm:justify-between' style={{ paddingInline:'1vw'}}>
+                      <div style={{ width:'45%', marginTop:'-15vw'}} className='h-[110vw] sm:h-[80vw]'>
+                      <Canvas
+                          ref={modelContainer}
+                      >
+                          {" "}
+                          <ambientLight />
+                          <spotLight intensity={0.3} position={[5, 10, 50]} />
+                          <directionalLight
+                          intensity={0.7}
+                          position={[10, 50, 30]}
+                          castShadow
+                          />
+                          <Suspense fallback={null}>
+                          <PersonalAvatarModelStanding
+                              scale={2}
+                              position={[0, -1.5, 0]}
+                          />
+                          </Suspense>
+                      </Canvas>
+                      </div>
+                      <div style={{ paddingInline:'1vw'}} className='sm:w-[40%] mb-[5vw] sm:mb-0 text-start'>
+                          <h1 className='text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl' style={{color:'#d3d3d3', opacity:'0.7', lineHeight: '1', paddingBottom:'1vw'}}>
+                          LUKA CEROVIC
+                          </h1>
+                          <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl' style={{paddingTop:'0.5vw', paddingBottom:'3vw'}}>
+                              Software Developer 3+ years
+                          </p>
+                          <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
+                              <FaLocationDot className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>Belgrade | Serbia
+                          </p>
+                          <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
+                              <FaCalendarDays className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>02.10.2000.
+                          </p>
+                          <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingTop:'1vw',paddingBottom:'6vw'}}>
+                          <RiContactsFill className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>luka.cerovic14@gmail.com | +381 640257139
+                          </p>
+                      </div>
+                  </div>
+                  <div className='flex justify-between self-center' style={{width:'60vw'}}>
+                      <Link to='https://www.linkedin.com/in/luka-cerovic-a50b52274/' className='rounded-3xl'>
+                          <GrLinkedin className='text-cyan-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl'/>
+                      </Link>
+                      <Link to='https://github.com/lukacerovic' className='rounded-3xl'>
+                          <GrGithub className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl'/>
+                      </Link>
                             
-                    </div>
-                </div>
-            </div>
-            <div style={{marginTop:'8vw',}} className='self-center w-[93%] sm:w-[90vw] text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
-                <p> I'm Luka Cerovic and I bring over <span className='text-cyan-400'>3 years of experience</span> in the <span className='text-cyan-400'>Full Stack</span> and <span className='text-cyan-400'>Software Development</span> industry.
-                    From front-end design to back-end architecture, I excel in navigating the complexities of development. 
-                    I thrive on challenges, leveraging my experience to drive projects forward. 
-                    Collaboration is key to my approach, and I'm passionate about creating impactful solutions through technology. 
-                    As I continue to evolve in this dynamic field, my dedication remains unwavering: to innovate, collaborate, and make a meaningful difference through software development.
-                </p>
-            </div>
-            <div className='flex flex-col my-[15vw] -sm:gap-[10vw] items-center justify-center gap-[2vw] items-center justify-between'>
-                <SkillsAndExperiance/>
-                <div>
-                    <Spline scene='https://prod.spline.design/yEnQ5qSj6CZCMx9U/scene.splinecode'/> 
-                </div>
-            </div>
+                  </div>
+              </div>
+          </div>
+          <div style={{marginTop:'8vw',}} className='self-center w-[93%] sm:w-[90vw] text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
+              <p> I'm Luka Cerovic and I bring over <span className='text-cyan-400'>3 years of experience</span> in the <span className='text-cyan-400'>Full Stack</span> and <span className='text-cyan-400'>Software Development</span> industry.
+                  From front-end design to back-end architecture, I excel in navigating the complexities of development. 
+                  I thrive on challenges, leveraging my experience to drive projects forward. 
+                  Collaboration is key to my approach, and I'm passionate about creating impactful solutions through technology. 
+                  As I continue to evolve in this dynamic field, my dedication remains unwavering: to innovate, collaborate, and make a meaningful difference through software development.
+              </p>
+          </div>
+          <div className='flex flex-col my-[15vw] -sm:gap-[10vw] items-center justify-center gap-[2vw] items-center justify-between'>
+              <SkillsAndExperiance/>
+              <div className='w-full h-[80vw] ml-[23vw] sm:ml-0 sm:h-[60vw] mt-[10vw] md:mt-[5vw]'>
+                  <Spline scene='https://prod.spline.design/yEnQ5qSj6CZCMx9U/scene.splinecode'/> 
+              </div>
+          </div>
             
 
-            <div className='flex flex-col' style={{gap:'10vw', paddingInline:'3vw'}}>
-                <h1 className='self-center text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl'>My Favorite Self-Made Projects</h1>
-                <FitLoupeProject/>
-                <SnapInProject/>
-                <OtherProjects/>
-            </div>  
-        </div>
-        <div className='flex justify-center' style={{background:'#595858', marginTop:'-0.2vw', fontSize:'5vw', paddingTop:'10vw'}}>
-            <h1 className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mt-[-1vw]'>Portfolio Of Designs</h1>
-        </div>         
+          <div className='flex flex-col' style={{gap:'10vw', paddingInline:'3vw'}}>
+              <h1 className='self-center text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl'>My Favorite Self-Made Projects</h1>
+              <FitLoupeProject/>
+              <SnapInProject/>
+              <OtherProjects/>
+          </div>  
+      </div>
+      <div
+        style={{
+          background: "linear-gradient(to bottom, #595858, black)",
+          paddingLeft: "4vw",
+          paddingRight: "4vw",
+          gap: "20vw",
+        }}
+        className="flex flex-col"
+      >
         <div
-            style={{
-            background: "linear-gradient(to bottom, #595858, black)",
-            paddingLeft: "4vw",
-            paddingRight: "4vw",
-            gap: "20vw",
-            }}
-            className="flex flex-col"
+          
+          className="flex flex-col"
+          style={{
+            paddingTop: "1vw",
+            width: "100%",
+            gap: "8vh",
+            marginTop: "10vw",
+            marginBottom: "10vh",
+            position: "relative",
+            zIndex: 10,
+            fontSize:'3vw'
+          }}
         >
-            <div
-            
-            className="flex flex-col"
-            style={{
-                paddingTop: "1vw",
-                width: "100%",
-                gap: "8vh",
-                marginTop: "10vw",
-                marginBottom: "10vh",
-                position: "relative",
-                zIndex: 10,
-                fontSize:'3vw'
-            }}
-            >
-            <h1 className="text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl self-center uppercase">
-                Web Projects
-            </h1>
-            <div ref={portfolioRef} style={{ width: "90vw" }}>
-                <Swiper navigation>
-                {window.innerWidth >= 640 && // Postavite odgovarajuću širinu za "sm" ekran
-                    webImageContainer
-                    .reduce((accumulator, currentValue, index) => {
-                        if (index % 3 === 0) {
-                        accumulator.push(webImageContainer.slice(index, index + 3));
-                        }
-                        return accumulator;
-                    }, [])
-                    .map((imageGroup, index) => (
-                        <SwiperSlide key={index}>
-                        <div className="flex gap-[3vw]">
-                            {imageGroup.map((image, imageIndex) => (
-                            <div
-                                key={imageIndex}
-                                onClick={() => handleImageClick(image)}
-                                style={{
-                                background: `url(${image}) center no-repeat`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                aspectRatio: "16 / 9",
-                                width: "33.33%",
-                                }}
-                            ></div>
-                            ))}
-                        </div>
-                        </SwiperSlide>
-                    ))}
-                {window.innerWidth < 640 && // Postavite odgovarajuću širinu za "sm" ekran
-                    webImageContainer.map((image, index) => (
+          <h1 className="text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl self-center uppercase">
+            Web Projects
+          </h1>
+          <div ref={portfolioRef} style={{ width: "90vw" }}>
+            <Swiper navigation>
+              {window.innerWidth >= 640 && // Postavite odgovarajuću širinu za "sm" ekran
+                webImageContainer
+                  .reduce((accumulator, currentValue, index) => {
+                    if (index % 3 === 0) {
+                      accumulator.push(webImageContainer.slice(index, index + 3));
+                    }
+                    return accumulator;
+                  }, [])
+                  .map((imageGroup, index) => (
                     <SwiperSlide key={index}>
+                      <div className="flex gap-[3vw]">
+                        {imageGroup.map((image, imageIndex) => (
+                          <div
+                            key={imageIndex}
+                            onClick={() => handleImageClick(image)}
+                            style={{
+                              background: `url(${image}) center no-repeat`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              aspectRatio: "16 / 9",
+                              width: "33.33%",
+                            }}
+                          ></div>
+                        ))}
+                      </div>
+                    </SwiperSlide>
+                  ))}
+              {window.innerWidth < 640 && // Postavite odgovarajuću širinu za "sm" ekran
+                webImageContainer.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      onClick={() => handleImageClick(image)}
+                      style={{
+                        background: `url(${image}) center no-repeat`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        aspectRatio: "16 / 9",
+                        width: "100%",
+                      }}
+                    ></div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+
+          </div>
+        </div>
+        <div
+          ref={mobileProjects}
+          className="self-start flex flex-col text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
+          style={{ gap: "8vh", position: "relative", zIndex: 10, }}
+        >
+          <h1 className="text-white self-center uppercase">
+            Mobile Projects
+          </h1>
+          <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
+            <Swiper navigation>
+              {mobileImageContainer
+                .reduce((accumulator, currentValue, index) => {
+                  if (index % 3 === 0) {
+                    accumulator.push(
+                      mobileImageContainer.slice(index, index + 3)
+                    );
+                  }
+                  return accumulator;
+                }, [])
+                .map((imageGroup, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex  gap-[3vw]">
+                      {imageGroup.map((image, imageIndex) => (
                         <div
-                        onClick={() => handleImageClick(image)}
-                        style={{
+                          key={imageIndex}
+                          onClick={() => handleImageClick(image)}
+                          style={{
                             background: `url(${image}) center no-repeat`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            aspectRatio: "16 / 9",
-                            width: "100%",
-                        }}
+                            aspectRatio: "2 / 3.5",
+                            width: "33.33%",
+                          }}
                         ></div>
-                    </SwiperSlide>
-                    ))}
-                </Swiper>
-
-            </div>
-            </div>
-            <div
-            ref={mobileProjects}
-            className="self-start flex flex-col text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
-            style={{ gap: "8vh", position: "relative", zIndex: 10, }}
-            >
-            <h1 className="text-white self-center uppercase">
-                Mobile Projects
-            </h1>
-            <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
-                <Swiper navigation>
-                {mobileImageContainer
-                    .reduce((accumulator, currentValue, index) => {
-                    if (index % 3 === 0) {
-                        accumulator.push(
-                        mobileImageContainer.slice(index, index + 3)
-                        );
-                    }
-                    return accumulator;
-                    }, [])
-                    .map((imageGroup, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="flex  gap-[3vw]">
-                        {imageGroup.map((image, imageIndex) => (
-                            <div
-                            key={imageIndex}
-                            onClick={() => handleImageClick(image)}
-                            style={{
-                                background: `url(${image}) center no-repeat`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                aspectRatio: "2 / 3.5",
-                                width: "33.33%",
-                            }}
-                            ></div>
-                        ))}
-                        </div>
-                    </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-            </div>
-            <div
-            ref={logoProjects}
-            className="self-end flex flex-col"
-            style={{
-                paddingTop: "10vh",
-                paddingBottom: "20vh",
-                gap: "4vh",
-                position: "relative",
-                zIndex: 10,
-                fontSize:'3vw'
-            }}
-            >
-            <h1 className="text-white self-center text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
-                Logo Projects
-            </h1>
-            <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
-                <Swiper navigation>
-                {logoImageContainer
-                    .reduce((accumulator, currentValue, index) => {
-                    if (index % 3 === 0) {
-                        accumulator.push(
-                        logoImageContainer.slice(index, index + 3)
-                        );
-                    }
-                    return accumulator;
-                    }, [])
-                    .map((imageGroup, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="flex gap-[3vw]">
-                        {imageGroup.map((image, imageIndex) => (
-                            <div
-                            key={imageIndex}
-                            onClick={() => handleImageClick(image)}
-                            style={{
-                                background: `url(${image}) center no-repeat`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                aspectRatio: "2 / 2",
-                                width: "33.33%",
-                                borderRadius: "50%",
-                            }}
-                            className=""
-                            ></div>
-                        ))}
-                        </div>
-                    </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-            </div>
-            <div
-            style={{ position: "sticky", zIndex: 0 }}
-            className="h-[230vw] sm:h-[180vw] h-[150vw] -mt-[270vw] xs:-mt-[215vw] sm:-mt-[220vw]  md:-mt-[190vw] lg:-mt-[180vw] xl:-mt-[175vw]"
-            >
-            <Canvas
-                ref={modelContainer}
-            >
-                {" "}
-                <ambientLight />
-                <spotLight intensity={0.3} position={[5, 10, 50]} />
-                <directionalLight
-                intensity={0.7}
-                position={[10, 50, 30]}
-                castShadow
-                />
-                <Suspense fallback={null}>
-                <PersonalAvatarModel
-                    element={modelContainer}
-                    textAnimate={[portfolioRef, mobileProjects, logoProjects]}
-                    scale={2}
-                    position={[0, -1.5, 0]}
-                />
-                </Suspense>
-            </Canvas>
-            </div>
+                      ))}
+                    </div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </div>
         </div>
-        <div className='bg-black' style={{marginTop:'-0.1vw'}}>
-            <div style={{paddingInline:'8vw', marginBottom:'20vh', paddingTop:'5vw',}}>
+        <div
+          ref={logoProjects}
+          className="self-end flex flex-col"
+          style={{
+            paddingTop: "10vh",
+            paddingBottom: "20vh",
+            gap: "4vh",
+            position: "relative",
+            zIndex: 10,
+            fontSize:'3vw'
+          }}
+        >
+          <h1 className="text-white self-center text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
+            Logo Projects
+          </h1>
+          <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
+            <Swiper navigation>
+              {logoImageContainer
+                .reduce((accumulator, currentValue, index) => {
+                  if (index % 3 === 0) {
+                    accumulator.push(
+                      logoImageContainer.slice(index, index + 3)
+                    );
+                  }
+                  return accumulator;
+                }, [])
+                .map((imageGroup, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex gap-[3vw]">
+                      {imageGroup.map((image, imageIndex) => (
+                        <div
+                          key={imageIndex}
+                          onClick={() => handleImageClick(image)}
+                          style={{
+                            background: `url(${image}) center no-repeat`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            aspectRatio: "2 / 2",
+                            width: "33.33%",
+                            borderRadius: "50%",
+                          }}
+                          className=""
+                        ></div>
+                      ))}
+                    </div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </div>
+        </div>
+        <div
+          style={{ position: "sticky", zIndex: 0 }}
+          className="h-[230vw] sm:h-[180vw] h-[150vw] -mt-[270vw] xs:-mt-[215vw] sm:-mt-[220vw]  md:-mt-[190vw] lg:-mt-[180vw] xl:-mt-[175vw]"
+        >
+          <Canvas
+            ref={modelContainer}
+          >
+            {" "}
+            <ambientLight />
+            <spotLight intensity={0.3} position={[5, 10, 50]} />
+            <directionalLight
+              intensity={0.7}
+              position={[10, 50, 30]}
+              castShadow
+            />
+            <Suspense fallback={null}>
+              <PersonalAvatarModel
+                element={modelContainer}
+                textAnimate={[portfolioRef, mobileProjects, logoProjects]}
+                scale={2}
+                position={[0, -1.5, 0]}
+              />
+            </Suspense>
+          </Canvas>
+        </div>
+      </div>
+      {selectedImage && (
+              <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-80" onClick={() => setSelectedImage(null)}>
+                <div className="flex items-center justify-center mx-auto p-6 rounded-lg" onClick={(e) => e.stopPropagation()}>
+                  <img src={selectedImage} alt="Selected Image" style={{ maxHeight: '80vh', maxWidth: '90%', paddingInline:'2vw' }} className="self-center" />
+                </div>
+              </div>
+            )}
+      <div className='bg-black' style={{marginTop:'-0.1vw'}}>
+            <div className='px-[5vw] md:px-[8vw]' style={{marginBottom:'20vh', paddingTop:'5vw',}}>
                <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase text-pink-500 pb-10'>Contact Me</h1> 
-               <div className='flex'>
-                    <div>
-                        <p className='text-md w-[80%] sm:w-[50vw] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-cyan-500 mt-10'>
+               <div className='flex flex-col'>
+                    <div className='w-[100%]'>
+                        <p className='text-md w-[90%] md:w-[50vw] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-cyan-500 mt-10'>
                             Feel free to get in touch with me for any inquiries, collaborations, or just to say hello! 
                             <br/><br/>
                             I'm always open to new opportunities and connections.
@@ -460,16 +449,15 @@ export default function Home() {
                <button type='button' onClick={() => handleSectionClick('form')} style={{marginTop:'5vh'}} className='bg-pink-500 text-white p-3 rounded-lg text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-10'>Contact Me Directly</button>
                  
                 {activeSection === 'form' && (
-                  <form onSubmit={handleSendForm} className='flex flex-col gap-3 mt-5 w-[100%] sm:w-[60vw] text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'> 
+                  <form onSubmit={handleSendForm} className='flex flex-col text-black gap-3 mt-5 w-[100%] sm:w-[60vw] text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'> 
                     <input className='p-3 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Full Name' id='username' onChange={handleChange}/>
                     <input className='p-3 rounded-lg' style={{background:'#f0f8ff '}} type='email' placeholder='Email' id='email' onChange={handleChange}/>
-                    <input className='p-3 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Type Of Service' id='subject' onChange={handleChange}/>
-                    <textarea className='p-3 h-60 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Describe what you need' id='message' onChange={handleChange}/>
+                    <textarea className='p-3 h-60 rounded-lg' style={{background:'#f0f8ff '}} type='text' placeholder='Message...' id='message' onChange={handleChange}/>
                     <button className='w-full bg-green-500 p-3 rounded-lg text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl uppercase'>Send  Message</button>
                   </form>  
                 )}
             </div>
         </div>
-    </div>  
-  )
+    </div>
+  );
 }

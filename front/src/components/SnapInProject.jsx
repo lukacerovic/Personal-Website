@@ -16,12 +16,12 @@ export default function SnapInProject() {
         setSelectedImage(null);
     };
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-between mb-[10vw]'>
-                <div className='w-[90%] md:w-[90vw] mt-[10vw] md:mt-0 mb-[10vw]' style={{borderRightWidth:'1px', paddingRight:'2vw'}}>
+    <div className='flex flex-col lg:flex-row items-center justify-between mb-[20vw] md:mb-[10vw]'>
+                <div className='w-[100%] md:w-[90vw] mt-[10vw] md:mt-0 mb-[10vw]' style={{borderRightWidth:'1px', paddingRight:'2vw'}}>
                     <div className='flex flex-col gap-[5vw] md:gap-[3vw]'>
                         <div>
                             <h1 className='text-6xl sm:text-7xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>SnapIn</h1>
-                            <p className='mt-[1.5vw] text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>Web App For Hotels Online Check-In</p>
+                            <p className='mt-[1.5vw] text-xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>Web App For Hotels Online Check-In</p>
                         </div>              
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-5xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Tools:</p>
@@ -29,7 +29,7 @@ export default function SnapInProject() {
                         </div>
                         <div>
                             <p className='text-3xl sm:text-4xl md:text-5xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>Description:</p>
-                            <p className='text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl'>
+                            <p className='text-sm sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl'>
                                 Hotels create booking posts for their rooms, which are then listed for tourists to browse. Once tourists find a suitable booking post, they can proceed to perform an online check-in.
                                 During online check-in, tourists simply upload a picture of their passport. An algorithm automatically scans the passport image and extracts all necessary information, filling out the online check-in form automatically. Tourists can review the populated form before completing the online check-in process.
                                 Upon completion, hotels receive notifications of completed online check-ins. They can view all booking requests and passport information in a table format. With a click of a button, hotels can assign rooms, triggering an email containing a QR code – representing the room key – to be sent to the tourist. When tourists scan the QR code, they gain access to their assigned room.
@@ -59,7 +59,7 @@ export default function SnapInProject() {
                                     <MdOutlineWebAsset size={'2.5vw'}/>
                                     Website
                                 </Link> */}
-                                <Link className='flex items-center text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl' style={{gap:'0.3vw'}}>
+                                <Link to='https://github.com/lukacerovic/Online-CheckIn' className='flex items-center text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl' style={{gap:'0.3vw'}}>
                                     <GrGithub className='text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-6xl 2xl:text-7xl'/>
                                     GitHub
                                 </Link>
