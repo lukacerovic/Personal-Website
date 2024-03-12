@@ -194,7 +194,7 @@ export default function Home() {
                   </div>
               </div>
           </div>
-          <div style={{marginTop:'8vw',}} className='self-center w-[93%] sm:w-[90vw] text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
+          <div style={{marginTop:'8vw',}} className='self-center w-[93%] sm:w-[90vw] text-center text-md sm:text-lg md:text-xl lg:w-[80%] lg:text-3xl xl:text-4xl 2xl:text-5xl'>
               <p> I'm Luka Cerovic and I bring over <span className='text-cyan-400'>3 years of experience</span> in the <span className='text-cyan-400'>Full Stack</span> and <span className='text-cyan-400'>Software Development</span> industry.
                   From front-end design to back-end architecture, I excel in navigating the complexities of development. 
                   I thrive on challenges, leveraging my experience to drive projects forward. 
