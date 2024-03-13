@@ -22,7 +22,7 @@ export default function FitLoupeProject() {
                     <h1 className='self-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-[10vw]'>Demo Video</h1>
                    <img className='self-center w-[80%] md:w-[38%] mt-[-45vw] md:mt-[-10vw]'src='images/fitLoupe.png'/>
                    
-                    <video controls className='self-center h-[120vw] md:h-[60vw] mt-[-45vw] md:mt-[-10vw]' >
+                    <video controls className='self-center h-[120vw] md:h-[40vw] mt-[-45vw] md:mt-[-10vw]' style={{borderWidth:'1px'}} >
                         <source src="https://www.dropbox.com/scl/fi/9wcnl6rfj8pqux93vlijl/fitLoupeDemo.MP4?rlkey=s6lxrc7ab4mp3hrs5qtjnlilq&dl=1" type="video/mp4"/>
                     </video> 
                     <div className='flex items-center justify-center' style={{gap:'0.5vw', paddingTop:'2vw'}}>
