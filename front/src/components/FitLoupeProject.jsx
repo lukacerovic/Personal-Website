@@ -26,10 +26,11 @@ export default function FitLoupeProject() {
                         <source src="videos/fitLoupeDemo.MP4" type="video/mp4"/>
                     </video> 
                     <div className='flex items-center justify-center' style={{gap:'0.5vw', paddingTop:'2vw'}}>
-                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe3.PNG')} src='videos/imagesOfDemos/fitLoupe3.PNG' className='w-[20%] md:w-[10vw]'/>
-                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe6.PNG')} src='videos/imagesOfDemos/fitLoupe6.PNG' className='w-[20%] md:w-[10vw]'/>
-                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe1.PNG')} src='videos/imagesOfDemos/fitLoupe1.PNG' className='w-[20%] md:w-[10vw]'/>
-                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe5.PNG')} src='videos/imagesOfDemos/fitLoupe5.PNG' className='w-[20%] md:w-[10vw]'/>
+                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe0.jpeg')} src='videos/imagesOfDemos/fitLoupe0.jpeg' className='w-[20%] md:w-[8vw]'/>
+                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe3.PNG')} src='videos/imagesOfDemos/fitLoupe3.PNG' className='w-[20%] md:w-[8vw]'/>
+                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe6.PNG')} src='videos/imagesOfDemos/fitLoupe6.PNG' className='w-[20%] md:w-[8vw]'/>
+                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe1.PNG')} src='videos/imagesOfDemos/fitLoupe1.PNG' className='w-[20%] md:w-[8vw]'/>
+                        <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe5.PNG')} src='videos/imagesOfDemos/fitLoupe5.PNG' className='w-[20%] md:w-[8vw]'/>
                     </div>
                     {selectedImage && (
                         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-80 z-50" onClick={handleCloseImage}>
