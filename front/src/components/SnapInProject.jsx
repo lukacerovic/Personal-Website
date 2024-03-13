@@ -70,7 +70,7 @@ export default function SnapInProject() {
                 <div className='flex flex-col items-center justify-center lg:w-[70%] pl-[1vw]'>
                     <h1 className='self-center text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>Demo Video</h1>
                     <img className='self-center w-[50%] lg:w-[60%] mt-[-5vw] lg:mt-0' src='images/snapIn.png'/>
-                    <video style={{ marginTop:'-3vw' }} controls className='w-[100%] lg:w-[40vw] self-center'>
+                    <video style={{ marginTop:'-3vw', borderWidth:'1px', boxShadow: '10px 14px 40px 40px rgba(0, 0, 0, 0.6)' }} controls className='w-[100%] lg:w-[40vw] self-center'>
                         <source src="https://www.dropbox.com/scl/fi/4h1da1fwdbjrjnlbb7swq/snapInDemo.MP4?rlkey=vg56x5z7ul4hafwliliyzny3f&dl=1" type="video/mp4"/>
                     </video> 
                     <div className='flex flex-wrap justify-center' style={{gap:'1vw', paddingTop:'2vw'}}>
