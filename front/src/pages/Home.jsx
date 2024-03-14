@@ -403,7 +403,7 @@ export default function Home() {
                             <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>luka.cerovic14@gmail.com</p>
                         </Link>  
                         <Link to='https://www.linkedin.com/in/luka-cerovic-a50b52274/' className='flex items-center gap-3 ml-3'>
-                          <GrLinkedin className='text-cyan-500 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 8xl:text-9xl'/>
+                          <GrLinkedin className='text-cyan-500 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl'/>
                           <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>Luka Cerovic</p>
                         </Link>
                     </div>
