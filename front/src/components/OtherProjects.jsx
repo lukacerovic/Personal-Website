@@ -7,7 +7,7 @@ export default function OtherProjects() {
         <div className='flex flex-wrap items-center justify-center gap-[5vw] xl:gap-[1.5vw]'>
             <div style={{backgroundColor:'black', gap:'2vw'}} className='w-[100%] md:w-[40%] self-center rounded-lg flex flex-col text-white'>
                 <video controls>
-                    <source src="https://www.dropbox.com/scl/fi/2u6jxn0gg44n3gq0jc59u/pythonCarGame.MP4?rlkey=obz1q3nhu47c6ki84l19owdnx&dl=1" type="video/mp4"/>
+                    <source src="https://www.dropbox.com/scl/fi/2u6jxn0gg44n3gq0jc59u/pythonCarGame.MP4?rlkey=obz1q3nhu47c6ki84l19owdnx&dl=0&raw=1" type="video/mp4"/>
                 </video> 
                 <p className='text-center text-sm sm:text-md xl:text-lg 2xl:text-xl' style={{ padding:'0.5vw', paddingTop:'0.5vw', borderTopWidth:'1px'}}>
                 Upon startup, it displays an image of streets and a car. 
@@ -21,7 +21,7 @@ export default function OtherProjects() {
             </div>
             <div style={{backgroundColor:'black', gap:'2vw'}} className='w-[100%] md:w-[40%] self-center rounded-lg flex flex-col text-white'>
                 <video controls>
-                    <source src="https://www.dropbox.com/scl/fi/giytoagujoohqmp7f89du/iBlogs.MP4?rlkey=blq1eesloyc4oxmydwhy1hxql&dl=1" type="video/mp4"/>
+                    <source src="https://www.dropbox.com/scl/fi/giytoagujoohqmp7f89du/iBlogs.MP4?rlkey=blq1eesloyc4oxmydwhy1hxql&dl=0&raw=1" type="video/mp4"/>
                 </video> 
                 <p className='text-center text-sm sm:text-md xl:text-lg 2xl:text-xl' style={{ padding:'0.5vw', paddingTop:'0.5vw', borderTopWidth:'1px'}}>
                 IBlogs is a social media clone project designed to mimic the functionalities of popular social media platforms. 
@@ -33,7 +33,7 @@ export default function OtherProjects() {
             </div>
             <div style={{backgroundColor:'black', gap:'2vw'}} className='w-[100%] md:w-[40%] self-center rounded-lg flex flex-col text-white'>
                 <video controls>
-                    <source src="https://www.dropbox.com/scl/fi/rjwznj7a0mrq8zc51u3mv/pythonBrowser.MP4?rlkey=19bzs2hrnmc16wisy7lj9zx27&dl=1" type="video/mp4"/>
+                    <source src="https://www.dropbox.com/scl/fi/rjwznj7a0mrq8zc51u3mv/pythonBrowser.MP4?rlkey=19bzs2hrnmc16wisy7lj9zx27&dl=0&raw=1" type="video/mp4"/>
                 </video> 
                 <p className='text-center text-sm sm:text-md xl:text-lg 2xl:text-xl' style={{ padding:'0.5vw', paddingTop:'0.5vw', borderTopWidth:'1px'}}>
                 The Python program utilizes <span className='bg-cyan-500 rounded-lg text-black' style={{padding:'0.2vw'}}>Selenium</span> to automate the opening of your Edge Browser and retrieves your search history.
