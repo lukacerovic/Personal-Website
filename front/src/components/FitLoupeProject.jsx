@@ -23,7 +23,7 @@ export default function FitLoupeProject() {
                    <img className='self-center w-[80%] md:w-[38%] mt-[-45vw] md:mt-[-10vw]'src='images/fitLoupe.png'/>
                    
                     <video controls playsInline className='self-center h-[120vw] md:h-[40vw] mt-[-45vw] md:mt-[-10vw]' style={{borderWidth:'1px', boxShadow: '-15px 14px 40px 40px rgba(0, 0, 0, 0.6)'}} >
-                        <source src="https://www.dropbox.com/scl/fi/9wcnl6rfj8pqux93vlijl/fitLoupeDemo.MP4?rlkey=s6lxrc7ab4mp3hrs5qtjnlilq&dl=1" type="video/mp4"/>
+                        <source src="https://www.dropbox.com/scl/fi/9wcnl6rfj8pqux93vlijl/fitLoupeDemo.MP4?rlkey=s6lxrc7ab4mp3hrs5qtjnlilq&dl=0&raw=1" type="video/mp4"/>
                     </video> 
                     <div className='flex items-center justify-center' style={{gap:'0.5vw', paddingTop:'2vw'}}>
                         <img onClick={() => handleImageClick('videos/imagesOfDemos/fitLoupe0.jpeg')} src='videos/imagesOfDemos/fitLoupe0.jpeg' className='w-[20%] md:w-[8vw]'/>
