@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Spline from '@splinetool/react-spline';
 import { MdOutlineMail } from "react-icons/md";
 import { GrInstagram, GrLinkedin, GrGithub } from "react-icons/gr";
-import { IoMdCloudDone } from "react-icons/io";
+import { SiReaddotcv } from "react-icons/si";
 import { FaCalendarDays, FaLocationDot } from "react-icons/fa6";
 import { RiContactsFill } from "react-icons/ri";
 import { Link, useLocation } from 'react-router-dom';
@@ -142,8 +142,11 @@ export default function Home() {
                           <h1 className='text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl' style={{color:'#d3d3d3', opacity:'0.7', lineHeight: '1', paddingBottom:'1vw'}}>
                           LUKA CEROVIC
                           </h1>
-                          <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl' style={{paddingTop:'0.5vw', paddingBottom:'3vw'}}>
+                          <p className='text-white text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl' style={{paddingTop:'0.5vw', paddingBottom:'0.5vw'}}>
                               Software Developer 3+ years
+                          </p>
+                          <p className='flex items-center text-white text-md sm:text-md md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl' style={{paddingTop:'0.5vw', paddingBottom:'3vw'}}>
+                              Currently at BlackRock <img className="w-[30%]" src="/images/blackRock.png"/>
                           </p>
                           <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
                               <FaLocationDot className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>Belgrade | Serbia
@@ -151,8 +154,18 @@ export default function Home() {
                           <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingBottom:'0.5vw'}}>
                               <FaCalendarDays className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>02.10.2000.
                           </p>
+                          <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingTop:'1vw'}}>
+                            <RiContactsFill className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>luka.cerovic14@gmail.com <br/> +381 640257139
+                          </p>
                           <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingTop:'1vw',paddingBottom:'6vw'}}>
-                          <RiContactsFill className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>luka.cerovic14@gmail.com | +381 640257139
+                            <SiReaddotcv className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>CV - 
+                            <a 
+                              href='/pdf/Luka Cerovic CV.pdf' 
+                              target='_blank' 
+                              rel='noopener noreferrer' 
+                              className='underline text-cyan-400'>
+                              Luka Cerovic CV
+                            </a>
                           </p>
                       </div>
                   </div>
@@ -168,7 +181,7 @@ export default function Home() {
               </div>
           </div>
           <div style={{marginTop:'8vw',}} className='self-center w-[93%] sm:w-[90vw] text-center text-md sm:text-lg md:text-xl lg:w-[80%] lg:text-3xl xl:text-4xl 2xl:text-5xl'>
-              <p> I'm Luka Cerovic and I bring over <span className='text-cyan-400'>3 years of experience</span> in the <span className='text-cyan-400'>Full Stack</span> and <span className='text-cyan-400'>Software Development</span> industry.
+              <p>I'm Luka Cerovic, a <span className='text-cyan-400'>Full Stack Developer</span> currently working at <span className='text-cyan-400'>BlackRock</span>, with over <span className='text-cyan-400'>3 years of experience</span> in the <span className='text-cyan-400'>Full Stack</span> and <span className='text-cyan-400'>Software Development</span> industry. 
                   From front-end design to back-end architecture, I excel in navigating the complexities of development. 
                   I thrive on challenges, leveraging my experience to drive projects forward. 
                   Collaboration is key to my approach, and I'm passionate about creating impactful solutions through technology. 
@@ -177,9 +190,9 @@ export default function Home() {
           </div>
           <div className='flex flex-col my-[15vw] -sm:gap-[10vw] items-center justify-center gap-[2vw] items-center justify-between'>
               <SkillsAndExperiance/>
-              <div className='w-[100%] h-[80vw] sm:ml-0 sm:h-[60vw] mt-[10vw] md:mt-[5vw]'>
+              {/* <div className='w-[100%] h-[80vw] sm:ml-0 sm:h-[60vw] mt-[10vw] md:mt-[5vw]'>
                   <Spline scene='https://prod.spline.design/yEnQ5qSj6CZCMx9U/scene.splinecode'/> 
-              </div>
+              </div> */}
           </div>
             
 
@@ -195,15 +208,14 @@ export default function Home() {
           background: "linear-gradient(to bottom, #595858, black)",
           paddingLeft: "4vw",
           paddingRight: "4vw",
-          gap: "20vw",
         }}
-        className="flex flex-col"
+        className="flex flex-col sm:gap-[20vw]"
       >
         <div
-          
           className="flex flex-col"
+          ref={portfolioRef}
           style={{
-            paddingTop: "1vw",
+            paddingTop: "10vw",
             width: "100%",
             gap: "8vh",
             marginTop: "10vw",
@@ -213,12 +225,12 @@ export default function Home() {
             fontSize:'3vw'
           }}
         >
-          <h1 className="text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl self-center uppercase">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl self-center uppercase">
             Web Projects
           </h1>
-          <div ref={portfolioRef} style={{ width: "90vw" }}>
+          <div style={{ width: "90vw" }}>
             <Swiper navigation>
-              {window.innerWidth >= 640 && // Postavite odgovarajuću širinu za "sm" ekran
+              {window.innerWidth >= 640 &&
                 webImageContainer
                   .reduce((accumulator, currentValue, index) => {
                     if (index % 3 === 0) {
@@ -227,7 +239,7 @@ export default function Home() {
                     return accumulator;
                   }, [])
                   .map((imageGroup, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={index} >
                       <div className="flex gap-[3vw]">
                         {imageGroup.map((image, imageIndex) => (
                           <div
@@ -239,13 +251,14 @@ export default function Home() {
                               backgroundPosition: "center",
                               aspectRatio: "16 / 9",
                               width: "33.33%",
+                              boxShadow: "0 10px 20px rgba(0, 0, 0, 0.8)",
                             }}
                           ></div>
                         ))}
                       </div>
                     </SwiperSlide>
                   ))}
-              {window.innerWidth < 640 && // Postavite odgovarajuću širinu za "sm" ekran
+              {window.innerWidth < 640 &&
                 webImageContainer.map((image, index) => (
                   <SwiperSlide key={index}>
                     <div
@@ -256,6 +269,7 @@ export default function Home() {
                         backgroundPosition: "center",
                         aspectRatio: "16 / 9",
                         width: "100%",
+                        borderRadius: "3%",
                       }}
                     ></div>
                   </SwiperSlide>
@@ -266,15 +280,15 @@ export default function Home() {
         </div>
         <div
           ref={mobileProjects}
-          className="self-start flex flex-col text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
+          className="self-center sm:self-start flex flex-col text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
           style={{ gap: "8vh", position: "relative", zIndex: 10, }}
         >
           <h1 className="text-white self-center uppercase">
             Mobile Projects
           </h1>
-          <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
+          <div style={{ margin: "0 auto" }} className="w-[70vw] sm:w-[60vw] mt-5">
             <Swiper navigation>
-              {mobileImageContainer
+              {window.innerWidth >= 640 && mobileImageContainer
                 .reduce((accumulator, currentValue, index) => {
                   if (index % 3 === 0) {
                     accumulator.push(
@@ -285,7 +299,7 @@ export default function Home() {
                 }, [])
                 .map((imageGroup, index) => (
                   <SwiperSlide key={index}>
-                    <div className="flex  gap-[3vw]">
+                    <div className="flex gap-[3vw]">
                       {imageGroup.map((image, imageIndex) => (
                         <div
                           key={imageIndex}
@@ -296,10 +310,29 @@ export default function Home() {
                             backgroundPosition: "center",
                             aspectRatio: "2 / 3.5",
                             width: "33.33%",
+                            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.8)",
                           }}
                         ></div>
                       ))}
                     </div>
+                  </SwiperSlide>
+                ))
+              }
+              {window.innerWidth < 640 &&
+                mobileImageContainer.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      onClick={() => handleImageClick(image)}
+                      style={{
+                        background: `url(${image}) center no-repeat`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        aspectRatio: "2 / 3.5",
+                        width: "100%",
+                        alignSelf:"center",
+                        borderRadius: "3%",
+                      }}
+                    ></div>
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -307,7 +340,7 @@ export default function Home() {
         </div>
         <div
           ref={logoProjects}
-          className="self-end flex flex-col"
+          className="self-center sm:self-end flex flex-col"
           style={{
             paddingTop: "10vh",
             paddingBottom: "20vh",
@@ -317,12 +350,12 @@ export default function Home() {
             fontSize:'3vw'
           }}
         >
-          <h1 className="text-white self-center text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
+          <h1 className="text-white self-center text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
             Logo Projects
           </h1>
           <div style={{ margin: "0 auto" }} className="w-[80vw] sm:w-[60vw] mt-5">
             <Swiper navigation>
-              {logoImageContainer
+              {window.innerWidth >= 640 && logoImageContainer
                 .reduce((accumulator, currentValue, index) => {
                   if (index % 3 === 0) {
                     accumulator.push(
@@ -345,6 +378,7 @@ export default function Home() {
                             aspectRatio: "2 / 2",
                             width: "33.33%",
                             borderRadius: "50%",
+                            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.8)",
                           }}
                           className=""
                         ></div>
@@ -352,33 +386,25 @@ export default function Home() {
                     </div>
                   </SwiperSlide>
                 ))}
+                {window.innerWidth < 640 &&
+                logoImageContainer.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      onClick={() => handleImageClick(image)}
+                      style={{
+                        background: `url(${image}) center no-repeat`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        aspectRatio: "2 / 2",
+                        width: "100%",
+                        alignSelf:"center",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
-        </div>
-        <div
-          style={{ position: "sticky", zIndex: 0 }}
-          className="h-[230vw] sm:h-[180vw] h-[150vw] -mt-[270vw] xs:-mt-[215vw] sm:-mt-[220vw]  md:-mt-[190vw] lg:-mt-[180vw] xl:-mt-[175vw]"
-        >
-          <Canvas
-            ref={modelContainer}
-          >
-            {" "}
-            <ambientLight />
-            <spotLight intensity={0.3} position={[5, 10, 50]} />
-            <directionalLight
-              intensity={0.7}
-              position={[10, 50, 30]}
-              castShadow
-            />
-            <Suspense fallback={null}>
-              <PersonalAvatarModel
-                element={modelContainer}
-                textAnimate={[portfolioRef, mobileProjects, logoProjects]}
-                scale={2}
-                position={[0, -1.5, 0]}
-              />
-            </Suspense>
-          </Canvas>
         </div>
       </div>
       {selectedImage && (
@@ -412,6 +438,10 @@ export default function Home() {
                     </div>
                </div>
             </div>
+        </div>
+    </div>
+  );
+}
         </div>
     </div>
   );
