@@ -160,7 +160,7 @@ export default function Home() {
                           <p className='text-white flex items-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl' style={{gap:'1vw', paddingTop:'1vw',paddingBottom:'6vw'}}>
                             <SiReaddotcv className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'/>CV - 
                             <a 
-                              href='/pdf/Luka Cerovic CV.pdf' 
+                              href='/Luka Cerovic CV.pdf' 
                               target='_blank' 
                               rel='noopener noreferrer' 
                               className='underline text-cyan-400'>
